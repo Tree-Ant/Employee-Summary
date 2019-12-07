@@ -2,10 +2,13 @@ const inquirer = require('inquirer');
 const Manager = require("./lib/Manager");
 const Engineer = require("./lib/Engineer");
 const Intern = require("./lib/Intern");
-
+const path = require("path");
+const render = require("./lib/htmlRenderer");
 const fs = require("fs");
-//const outputPath = path.resolve(__dirname, "output", "team.html");
+
+const outputPath = path.resolve(__dirname, "output", "team.html");
 const employeeList = [];
+
 
 
 function start() {
@@ -141,6 +144,6 @@ function addManager() {
 
    function end() {
         console.log("STOP!!!!");
-        //fs.writeFileSync(outputPath, render(teamMembers), "utf-8");
+        fs.writeFileSync(outputPath, render(employeeList), "utf-8");
   }
    
